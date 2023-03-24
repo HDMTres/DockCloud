@@ -7,6 +7,12 @@ const employees = [
  { id: 3, firstName: 'Rayan', lastName: 'Din', emailId: 'ryan.din@example.com' }
 ];
 
+// Route pour récupérer tous les employés == READ
+
+app.get('/api/v1/employees', (req, res) => {
+  res.json(employees);
+});
+
 // Route pour récupérer un employé spécifique == READ
 app.get('/api/v1/employees/:id', (req, res) => {
 	const id = parseInt(req.params.id);
@@ -18,17 +24,12 @@ app.get('/api/v1/employees/:id', (req, res) => {
 	}
   });
   
-  // Route pour récupérer tous les employés == READ
-  
-  app.get('/api/v1/employees', (req, res) => {
-	res.json(employees);
-  });
 
   
 // Port d'écoute pour l'API
 const port = 8081;
 app.listen(port, () => {
- console.log(`API listening on port ${port}`);
+ console.log(`API ecoute sur le port ${port}`);
 });
 
 // DELETE
